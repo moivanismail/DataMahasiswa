@@ -11,13 +11,12 @@ import java.text.MessageFormat;
 
 public class HalamanMuka {
 
-
+    // buat fungsi - fungsi tombol dan tabel
     public HalamanMuka() {
+        //    function insert data
         btnSimpan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent click) {
-
-                //    function insert data
 
                 String idMahasiswaText = IDMahasiswa.getText();
                 String nameText = name.getText();
@@ -37,7 +36,7 @@ public class HalamanMuka {
                 }
             }
         });
-
+        // function hapus data
         btnHapus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -55,6 +54,8 @@ public class HalamanMuka {
                 }
             }
         });
+
+        // fungsi mouse klik listener, menampilkan data yang di pilih ke form
         table1.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -66,14 +67,14 @@ public class HalamanMuka {
                 IDMahasiswa.setText(table1.getValueAt(row, 0).toString());
                 name.setText(table1.getValueAt(row, 1).toString());
                 kelas.setText(table1.getValueAt(row, 2).toString());
-//                Object objJurusan = table1.getValueAt(row, 3);
-//                comboJurusan.setSelectedItem(objJurusan);
                 comboJurusan.setSelectedItem((table1.getValueAt(row, 3).toString()));
                 comboPembayaran.setSelectedItem(table1.getValueAt(row, 4).toString());
                 jumlah.setText(table1.getValueAt(row, 5).toString());
 
             }
         });
+
+        // fungsi tombol ubah data
         btnUbah.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,6 +97,8 @@ public class HalamanMuka {
                 }
             }
         });
+
+        // fungsi tombol cetak data
         btnCetak.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -111,6 +114,7 @@ public class HalamanMuka {
         });
     }
 
+    // memanggil fungsi untuk menampilkan data pada tabel
     public JPanel getHomePanel() {
         tampilData();
         return homePanel;
@@ -136,12 +140,7 @@ public class HalamanMuka {
     private JComboBox comboJurusan;
     private JScrollPane tableData;
 
-
-    private void createUIComponents() {
-        // TODO: place custom component creation code here
-    }
-
-    //tampilkan data pada Jtable
+    //fungsi tampilkan data pada Jtable
     private  void tampilData(){
         DefaultTableModel tableModel = new DefaultTableModel();
         table1.setModel(tableModel);

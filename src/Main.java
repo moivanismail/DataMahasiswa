@@ -9,7 +9,6 @@ public class Main {
         DBFunctions db=new DBFunctions();
         Connection conn = db.connect_to_db("data_mahasiswa", "moivan", "moivan");
         db.createTable(db.connect_to_db("data_mahasiswa", "moivan", "moivan"), "mahasiswa");
-//        db.selectData(conn, "mahasiswa");
         SwingUtilities.invokeLater(Main::createGUI);
     }
 

@@ -89,6 +89,4 @@ public class DBFunctions {
         }
         return resultSet;
     }
-
-
 }
